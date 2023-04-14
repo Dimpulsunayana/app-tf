@@ -1,10 +1,10 @@
-resource "aws_security_group" "alb" {
-  name        = "${var.env}-${var.component}-alb_segrp"
+resource "aws_security_group" "app" {
+  name        = "${var.env}-${var.component}-segrp"
   description = "Allow TLS inbound traffic"
   vpc_id      = var.main_vpc
 
   ingress {
-    description      = "alb"
+    description      = "apps"
     from_port        = var.app_port
     to_port          = var.app_port
     protocol         = "tcp"
@@ -20,7 +20,7 @@ resource "aws_security_group" "alb" {
 
   tags       = merge(
     local.common_tags,
-    { Name = "${var.env}-alb-${var.component}-segrp" }
+    { Name = "${var.env}-${var.component}-segrp" }
   )
 }
 

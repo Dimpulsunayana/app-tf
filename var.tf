@@ -10,3 +10,4 @@ variable "max_size" {}
 variable "min_size" {}
 variable "desired_capacity" {}
 variable "instance_type" {}
+variable "allow_workstation_cidr" {}

@@ -26,7 +26,7 @@ resource "aws_security_group" "app" {
 
 resource "aws_launch_template" "main" {
   name_prefix   = "${var.env}-${var.component}-template"
-  image_id      = data.aws_ami
+  image_id      = data.aws_ami.example.id
   instance_type = "t2.micro"
 }
 
